@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <div>
+            <input type="radio" id="on" name="switch" />
+            <label for="on">ON</label>
+          </div>
+          <div>
+            <input type="radio" id="off" name="switch" default />
+            <label for="off">OFF</label>
+          </div>
+    </div>
+
+<script>
+    let onSwitch = document.getElementById("on");
+let offSwitch = document.getElementById("off");
+let onLabel = document.querySelector("label[for='on']");
+let offLabel = document.querySelector("label[for='off']");
+let container = document.getElementById("container");
+
+let onClicked = () => {
+    container.style.boxShadow = "inset -0.9em 0 0.9em #494949";
+    offLabel.style.color = "#8e8e8e";
+    onLabel.style.color = "#98f195";
+  };
+
+  let offClicked = () => {
+    container.style.boxShadow = "inset 0.9em 0 0.9em #171717";
+    onLabel.style.color = "#8e8e8e";
+    offLabel.style.color = "#f1959f";
+  };
+
+  window.addEventListener("load", () => {
+    if (onSwitch.checked) {
+      onClicked();
+    } else {
+      offClicked();
+    }
+  });
+
+  onSwitch.addEventListener("click", onClicked);
+offSwitch.addEventListener("click", offClicked);
+</script>
+</body>
+</html>
